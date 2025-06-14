@@ -222,3 +222,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   observer.observe(footerContent);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById("music-toggle");
+  const bgMusic = document.getElementById("bg-music");
+
+  if (!toggleBtn || !bgMusic) return;
+
+  bgMusic.volume = 0.4;
+
+  toggleBtn.addEventListener("click", () => {
+    if (bgMusic.paused) {
+      bgMusic.play();
+      toggleBtn.textContent = "🔊 Music";
+    } else {
+      bgMusic.pause();
+      toggleBtn.textContent = "🔇 Music";
+    }
+  });
+});
